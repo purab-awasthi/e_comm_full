@@ -11,8 +11,7 @@ DELETE FROM users;
 -- Insert Default Admin User
 -- Password is 'password' (bcrypt hashed)
 INSERT INTO users (name, email, password, role, created_at)
-VALUES ('Admin', 'admin@shop.com', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ADMIN', CURRENT_TIMESTAMP)
-ON CONFLICT (email) DO NOTHING;
+VALUES ('Admin', 'admin@shop.com', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ADMIN', CURRENT_TIMESTAMP);
 
 -- Insert Default Products (Fixed to use real curated high-quality Unsplash image photography)
 INSERT INTO products (name, description, price, image_url, stock, category, created_at, updated_at) VALUES
@@ -49,5 +48,4 @@ INSERT INTO products (name, description, price, image_url, stock, category, crea
 ('Fitness Tracker Band', 'Waterproof fitness band with heart rate monitoring', 49.99, 'https://images.unsplash.com/photo-1434493789847-2f02b0c4e20b?auto=format&fit=crop&w=800&q=80', 70, 'Wearables', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('Digital Drawing Tablet', 'Professional drawing tablet with pressure sensitivity', 299.99, 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=800&q=80', 15, 'Accessories', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
 ('Streaming Webcam', '4K webcam with auto-focus and low-light correction', 199.99, 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80', 30, 'Accessories', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP),
-('Portable Power Bank', '20,000mAh power bank with fast charging support', 59.99, 'https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=800&q=80', 65, 'Accessories', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
-ON CONFLICT (name) DO NOTHING;
+('Portable Power Bank', '20,000mAh power bank with fast charging support', 59.99, 'https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=800&q=80', 65, 'Accessories', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
