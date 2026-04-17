@@ -17,10 +17,12 @@ import java.util.function.Function;
 @Component
 public class JwtUtils {
 
-    @Value("${jwt.secret}")
+    // ✅ Fallback added (IMPORTANT)
+    @Value("${jwt.secret:12345678901234567890123456789012}")
     private String secret;
 
-    @Value("${jwt.expirationMs}")
+    // ✅ Fallback added
+    @Value("${jwt.expirationMs:86400000}")
     private int jwtExpirationMs;
 
     private Key getSigningKey() {
@@ -51,7 +53,11 @@ public class JwtUtils {
     }
 
     private Claims extractAllClaims(String token) {
-        return Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token).getBody();
+        return Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 
     private Boolean isTokenExpired(String token) {
