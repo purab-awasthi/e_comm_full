@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://e-comm-full-n8c0.onrender.com',
+  // Just add /api right here 👇
+  baseURL: 'https://e-comm-full-n8c0.onrender.com/api',
 });
 
 api.interceptors.request.use((config) => {
